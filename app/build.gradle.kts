@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    id("com.google.devtools.ksp") version "2.1.20-1.0.32"
+    id("com.google.devtools.ksp") version "2.3.13"
 }
 
 android {
@@ -32,8 +32,10 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-    kotlinOptions {
-        jvmTarget = "11"
+    kotlin {
+        compilerOptions {
+            jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11)
+        }
     }
     buildFeatures {
         compose = true
@@ -42,8 +44,8 @@ android {
 
 dependencies {
 
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
+    // implementation(libs.androidx.core.ktx)
+    // implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
@@ -58,16 +60,19 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    // Compose BOM и базовые зависимости
+    // Compose
     implementation(platform("androidx.compose:compose-bom:2025.10.00"))
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.material3:material3")
+    implementation("androidx.compose.material:material-icons-extended")
     implementation("androidx.activity:activity-compose:1.10.1")
+
+// ВАЖНО: откатить lifecycle до 2.9.x или 2.8.x
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.9.0")
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.9.0")
 
-// Navigation 3
-    implementation("androidx.navigation3:navigation3-ui:1.0.0-alpha10") // актуальная версия
+// Navigation 3 (оставить как есть)
+    implementation("androidx.navigation3:navigation3-ui:1.0.0-alpha10")
     implementation("androidx.navigation3:navigation3-runtime:1.0.0-alpha10")
 
 // Room
