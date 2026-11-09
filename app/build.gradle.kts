@@ -46,6 +46,7 @@ dependencies {
 
     // implementation(libs.androidx.core.ktx)
     // implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.9.0")
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
@@ -72,8 +73,8 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.9.0")
 
 // Navigation 3 (оставить как есть)
-    implementation("androidx.navigation3:navigation3-ui:1.0.0-alpha10")
-    implementation("androidx.navigation3:navigation3-runtime:1.0.0-alpha10")
+    implementation("androidx.navigation3:navigation3-ui:1.1.0")
+    implementation("androidx.navigation3:navigation3-runtime:1.1.0")
 
 // Room
     implementation("androidx.room:room-runtime:2.7.1")
